@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-hazard: var(--hazard);
+  --color-danger: var(--danger);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #07090d;
+  --foreground: #e8ebef;
+  --card: #0f1318;
+  --card-foreground: #e8ebef;
+  --popover: #0f1318;
+  --popover-foreground: #e8ebef;
+  --primary: #f2a516;
+  --primary-foreground: #0b0b0b;
+  --secondary: #1a2029;
+  --secondary-foreground: #e8ebef;
+  --muted: #151a21;
+  --muted-foreground: #8b94a3;
+  --accent: #1f2631;
+  --accent-foreground: #e8ebef;
+  --destructive: #ff4040;
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.14);
+  --ring: #f2a516;
+  --hazard: #f2a516;
+  --danger: #ff4040;
+  --radius: 0.375rem;
+  --tg-safe-top: env(safe-area-inset-top, 0px);
+  --tg-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --tg-safe-left: env(safe-area-inset-left, 0px);
+  --tg-safe-right: env(safe-area-inset-right, 0px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer utilities {
+  .safe-pad {
+    padding-top: max(var(--tg-safe-top), 0.75rem);
+    padding-bottom: max(var(--tg-safe-bottom), 0.75rem);
+    padding-left: max(var(--tg-safe-left), 1rem);
+    padding-right: max(var(--tg-safe-right), 1rem);
+  }
+  .hazard-stripes {
+    background-image: repeating-linear-gradient(-45deg, var(--hazard) 0 10px, #111 10px 20px);
+  }
+}
